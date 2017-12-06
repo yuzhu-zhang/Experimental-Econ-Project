@@ -47,7 +47,7 @@ class Send(Page):
     form_fields = ['sent_amount']
 
     def is_displayed(self):
-        return self.player.id_in_group % 2 == 1 and (self.round_number % 6 == 1 or self.round_number % 6 == 2)
+        return self.player.id_in_group % 2 == 1 and (self.round_number <= Constants.num_rounds / 3)
 
 
     
@@ -71,7 +71,7 @@ class Threat(Page):
     form_fields = ['threat']
 
     def is_displayed(self):
-        return self.player.id_in_group % 2 == 0 and (self.round_number % 6 == 3 or self.round_number % 6== 4)
+        return self.player.id_in_group % 2 == 0 and (self.round_number > Constants.num_rounds / 3 and self.round_number <= Constants.num_rounds / 3 * 2)
 
 
 class Negotiate(Page):
@@ -79,21 +79,21 @@ class Negotiate(Page):
     form_fields= ['negotiate', 'offer']
 
     def is_displayed(self):
-        return self.player.id_in_group % 2 == 0 and (self.round_number % 6 == 5 or self.round_number % 6== 0)
+        return self.player.id_in_group % 2 == 0 and (self.round_number > Constants.num_rounds / 3 * 2)
 
 class SendWithThreat(Page):
     form_model = models.Group
     form_fields = ['sent_amount']
 
     def is_displayed(self):
-        return self.player.id_in_group % 2 == 1 and (self.round_number % 6 == 3 or self.round_number % 6== 4)
+        return self.player.id_in_group % 2 == 1 and (self.round_number > Constants.num_rounds / 3 and self.round_number <= Constants.num_rounds / 3 * 2)
 
 class SendWithNegotiate(Page):
     form_model = models.Group
     form_fields = ['sent_amount']
 
     def is_displayed(self):
-        return self.player.id_in_group % 2 == 1 and (self.round_number % 6 == 5 or self.round_number % 6== 0)
+        return self.player.id_in_group % 2 == 1 and (self.round_number > Constants.num_rounds / 3 * 2)
 
 
 class Offer(Page):
@@ -101,7 +101,7 @@ class Offer(Page):
     form_fields = ['actual_offer']
 
     def is_displayed(self):
-        return self.player.id_in_group % 2 == 0 and self.group.offer_accepted and (self.round_number % 6 == 5 or self.round_number % 6== 0)
+        return self.player.id_in_group % 2 == 0 and self.group.offer_accepted and (self.round_number > Constants.num_rounds / 3 * 2)
 
 page_sequence = [
     Instructions,
