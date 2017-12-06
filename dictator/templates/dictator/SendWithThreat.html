@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Improved Dictator Game: Your Choice
+{% endblock %}
+
+{% block content %}
+
+    <p>
+    You are chosen as the dictator. Now you have have to decide how to split the {{Constants.endowment}} between you and the other player.
+    </p>
+
+    <p>The other player sent you the following message: </p>
+    <p>"I will not accept the deal if you split less than {{group.threat}} to me."</p>
+
+    {% formfield group.sent_amount label="How much do you want to split to the other participant?" %}
+
+    {% next_button %}
+
+{% endblock %}

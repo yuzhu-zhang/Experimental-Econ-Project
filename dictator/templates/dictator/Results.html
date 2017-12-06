@@ -1,0 +1,43 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+{% if player.id_in_group == 1 and group.offer_accepted %}
+    <p>
+        The other participant accepted your offer.
+        You received {{ group.received_amount }}.
+        The other player received {{group.sent_amount}}.
+    </p>
+{% elif player.id_in_group == 1 and not group.offer_accepted %}
+    <p>
+        The other participant did not accept your offer.
+        You received {{player.payoff }}.
+        The other player received {{player.payoff}}.
+    </p>
+{% elif player.id_in_group == 2 and group.offer_accepted %}
+    <p>
+        You accept the deal.
+        You received {{ group.sent_amount }}.
+        The other player received {{group.received_amount}}.
+    </p>
+{% else %}
+    <p>
+        You did not accept the deal.
+        You received {{player.payoff}}.
+        The other player received {{player.payoff}}.
+    </p>
+
+{% endif %}
+
+    <p>
+    Therefore, your payoff for this round is {{ player.payoff }}.
+    </p>
+
+    {% next_button %}
+
+{% endblock %}

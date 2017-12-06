@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Improved Dictator Game: Your Choice
+{% endblock %}
+
+{% block content %}
+
+
+    <p>
+    In this round, as a receiver, you are given the right to "negotiate" the dictator. We will send the following message to the dictator before he or she makes a decision.   
+
+    </p>
+
+    <p>"The other player sent you a message,
+     'If you split more than x dollars to me, I will accept the offer and give you y dollars.'"</p>
+
+
+
+    {% formfield group.negotiate label="How much do you want to put in x?" %}
+    {% formfield group.offer label="How much do you want to put in y?" %}
+
+    <p>Please notice that you still have the choice to not offer anything to the dictator despite what you said. You will be asked if you want to offer the other player that amount if you accept the deal</p>
+
+    {% next_button %}
+
+{% endblock %}

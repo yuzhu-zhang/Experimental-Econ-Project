@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Improved Dictator Game: Your Choice
+{% endblock %}
+
+{% block content %}
+
+
+    <p>
+    In this round, as a receiver, you are given the right to "threat" the dictator. We will send the following message to the dictator before he or she makes a decision.
+
+    
+    </p>
+    <p>
+    	"The other player sent you a message,
+     'I will not accept the deal if you split less than n dollars to me.'"
+
+     Please enter "0" if you do not wish to threat the dictator.</p>
+
+    {% formfield group.threat label="How much do you want to put in n?" %}
+
+    {% next_button %}
+
+{% endblock %}

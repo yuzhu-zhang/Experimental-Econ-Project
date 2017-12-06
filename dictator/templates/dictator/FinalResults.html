@@ -1,0 +1,13 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Congratulations! You finished all rounds. Here are your Final Results
+{% endblock %}
+
+{% block content %}
+    <p>Your total payoff is {{total_payoff}}</p>
+
+    {% next_button %}
+
+{% endblock %}

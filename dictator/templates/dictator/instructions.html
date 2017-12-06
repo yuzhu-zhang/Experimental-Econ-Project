@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree staticfiles %}
+{% block content %}
+<div class="instructions well well-lg">
+
+    <h3 class="panel-sub-heading">
+        Instructions
+    </h3>
+<p>
+    This is an improved dictator game with 2 players.
+</p>
+<p>
+    Thanks you for participating in our experiment!
+Before we start, please keep in mind that this is an experiment. During the entire procedure, please avoid any kind of communications to others. If you have any question, please feel free to ask our researchers for help. 
+</p>
+<p>You will be randomly assigned a partner in this game to play for a total of 18 rounds.  You will either be assigned as the dictator (Player A) or the receiver (Player B). The dictator can choose how to split $100 in each round, and the receiver have the chance to either receive or reject the offer. After 18 rounds, both parties will be paid according to the total payoff.</p>
+<p>Here are the rules: </p>
+<p>Round 1-6:
+Player A needs to enter how much of the total $100 to split to Player B. 
+Player B decides whether to accept the deal or not.
+</p>
+<p>Round 7-12:
+ Player B is given the chance to send a message to Player A. Player B will be asked to enter a value based on the provided information.
+Player A strategizes how much money he or she wants to split to B after reading the message .
+Player B decides whether to accept the deal or not.
+</p>
+<p>Round 13-18:
+Player B is given a chance to send a message to A.
+Player B will be asked to provide two values for the message. Remember that B is not forced to fulfill this message.
+After reading B’s message. Player A decides how much to split to B based on the new information. 
+Player B decides whether to accept the offer or not and how much to actually give to A if the offer is accepted. The amount B entered will be added to A’s payoff and deduced from B’s payoff.
+</p>
+<p>At the end of the experiment, the program will inform you of your results. Your final result will be the sum of the payoffs gained in each round of the game. 
+
+</p>
+<p>If you have any questions, feel free to ask us any time during the experiment. If you understand the rules, click on "Next".
+</p>
+</div>
+
+    {% next_button %}
+{% endblock %}

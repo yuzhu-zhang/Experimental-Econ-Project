@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Improved Dictator Game: Your Choice
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        In the previous step, you agreed to offer the other player {{group.offer}}
+    </p>
+    {% formfield group.actual_offer label="How much do you actually want to offer the other player?" %}
+    {% next_button %}
+
+
+
+
+{% endblock %}
